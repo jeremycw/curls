@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+source ./tools/util.sh
+curl `config johnny5.base`/oauth/token \
+-i -s -w "\n" \
+-XPOST \
+-H'Content-Type: application/json' \
+-H'Accept: application/json; version=1' \
+-d"{\"grant_type\":\"password\", \"username\": \"`config customer.email`\", \"password\": \"`config customer.password`\"}" \
+| ./tools/save_auth.rb | ./tools/pretty_json.rb
