@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 source ./tools/util.sh
-curl `config wallet-read.base`/passbook?user_id=$1 \
+curl `config johnny5.base`/billers/local \
 -i -s -w "\n" \
--H'Accept: application/json' \
 -H"Authorization: Bearer `authtoken`" \
+-H'Accept: application/json; version=1' \
 | ./tools/pretty_json.rb

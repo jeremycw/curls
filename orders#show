@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+source ./tools/util.sh
+curl `config johnny5.base`/orders/$1 \
+-i -s -w "\n" \
+-H"Authorization: Bearer `authtoken`" \
+-H'Accept: application/json; version=3' \
+| ./tools/pretty_json.rb
